@@ -1,0 +1,328 @@
+React is a frontend JavaScript Library that is used to built interactive user interface (UI).
+Using React we can create SINGLE PAGE APPLICATION (SPA).
+
+Single Page Application - Whenever we are navigating to a different section on a webpage, the youtube path changes without reloading the webpage again and again. Hence, it is releading the page only once while even navigating to different section of the webpage.
+
+In React, we use JSX - JavaScript Syntax Extension.
+Using JSX, we can write HTML & JavaScript in a single file.
+
+In react, we divide the webpage in different/multiple components that makes the website design much easier... like sidebar, navbar, header etc.
+In react, we have "props" that helps us to communicate/send data between different components on a webpage.
+
+We use, "hooks" and "pre-built packages" which helps us to create efficiently any react project.
+
+Installation of nodejs package:
+Install nodejs directly from the available link on the website.
+To verify installation, we write "npm --version"
+
+To create react project using vite...
+
+-- npm create vite@latest
+Give project name, select framework as react and javascript + SWC in variant...
+After project is created successfully, run the below commands...
+-- cd project-name
+-- npm install
+-- npm run dev
+
+using "npm install" it will install all the dependencies from this package.json
+
+So, "main.jsx" file in "src" folder is our entry point of react project
+Here we have ReactDOM also known as VirtualDOM using which we are rendering our react components... and we write "document.getElementByID('root')"
+This root is being mentioned as "id" in our index.html file...
+Hence, this coordination helps us to view our webpage...
+
+
+Then comes, App.jsx which is the functional component where we are returning the HTML tags and in these HTML tages, we are using JavaScript...
+That's why this is known as ".jsx" file where we are writing both HTML and JavaScript in one file...
+
+So, writing "rafce" we can get the basic react template in our file...
+for making this rafce work we need to install one extension in the vscode...
+
+const App = () => {
+    return {
+        <div>
+
+        </div>
+    }
+}
+
+export default App
+
+Now, for creating multiple components... we will create a folder "components" in "src" folder, ./sr/components
+Inside this components folder we will create our components like navbar.jsx, sidebar.jsx, banner.jsx, header.jsx, footer.jsx etc.
+So, we have two types of components - Functional Components and Class-based Components
+for now, we will be using functional-based components in all our react projects...
+
+In React, components are the building blocks of the UI. They can be created in two main ways:
+
+1. Functional Components
+2. Class-based Components
+With the introduction of React Hooks (React 16.8+), functional components can now handle state and lifecycle logic, making them the preferred choice in modern React development.
+
+1. Functional Components
+Definition: JavaScript functions that return JSX.
+State(useState) & Lifecycle(useEffect): Managed using Hooks (useState, useEffect, etc.).
+Syntax: Simpler and more concise.
+Performance: Slightly better due to less overhead.
+Best for: Most modern React apps.
+
+
+Example:
+
+import React, { useState, useEffect } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0); // State hook
+
+  useEffect(() => {
+    console.log(`Count updated: ${count}`);
+  }, [count]); // Effect hook
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+
+2. Class-based Components
+Definition: ES6 classes that extend React.Component.
+State & Lifecycle: Managed using this.state and lifecycle methods (componentDidMount, componentDidUpdate, componentWillUnmount, etc.).
+Syntax: More verbose.
+Performance: Slightly more overhead.
+Best for: Legacy codebases or when working with older React patterns.
+
+
+Example:
+
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 }; // State initialization
+  }
+
+  componentDidUpdate() {
+    console.log(`Count updated: ${this.state.count}`);
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Count: {this.state.count}</h2>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Increment
+        </button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+
+Use functional components with Hooks for new projects — they are cleaner, easier to test, and align with modern React best practices. Class components are still supported but mainly for maintaining older code.
+
+In React development with VS Code,
+rafc and rafce are code snippets provided by the ES7+ React/Redux/React-Native snippets extension.
+They are shortcuts to quickly generate boilerplate code for functional components.
+
+
+Meaning of rafc and rafce:
+rafc	React Arrow Function Component	        Creates a functional component with named export.
+rafce	React Arrow Function Component Export	Creates a functional component with default export.
+
+Example: rafc
+Typing rafc + Tab (or Enter) generates:
+
+import React from 'react';
+
+export const MyComponent = () => {
+  return (
+    <div>MyComponent</div>
+  );
+};
+
+Named export — you must import it with { MyComponent }.
+
+
+Example: rafce
+Typing rafce + Tab generates:
+
+import React from 'react';
+
+const MyComponent = () => {
+  return (
+    <div>MyComponent</div>
+  );
+};
+
+export default MyComponent;
+
+Default export — you can import it without curly braces.
+
+
+How to Enable These Shortcuts
+1. Install the extension:
+    1. ES7+ React/Redux/React-Native snippets by dsznajder.
+2. In VS Code:
+    1. Open Extensions (Ctrl+Shift+X / Cmd+Shift+X on Mac).
+    2. Search for ES7+ React/Redux/React-Native snippets and install.
+3. Make sure your file has:
+.js, .jsx, .ts, or .tsx extension.
+Language mode set to JavaScript React or TypeScript React (check bottom-right corner of VS Code).
+Type rafc or rafce and press Tab (or Enter).
+
+Tip:
+1. Use rafc when you want multiple named components in one file.
+2. Use rafce when the file will export only one main component.
+
+So, in Navbar.jsx (rafc)
+
+const Navbar = () => {
+    return (
+        <div>navbar<div>
+    )
+}
+
+export default Navbar
+
+Now, to use this component, come to App.jsx and write
+
+import Navbar from "./components/Navbar"
+
+const App = () => {
+    return (
+        <div>
+            <Navbar/>
+        </div>
+    )
+}
+
+export default App
+
+So, how this JSX works?
+
+App.jsx:
+
+const App = () => {
+    let x = "GreatStack";
+    let array = ["user1", "user2", "user3", "user4", "user5"];
+    return (
+        <div>
+            {x}
+            {array.map((user) => (return <h2>{user}</h2>))}
+            // Whatever we return here will be returned multiple times based on the size of the array
+        </div>
+    )
+}
+
+export default App
+
+Now let's see conditional rendering...
+
+const App = () => {
+
+    let data = "boy";
+    return (
+        <div>
+        {data === "boy" ? <h1>Boy</h1> : <h1>Girl</h1>}
+        </div>
+    )
+}
+
+export default App
+
+Now let's see event handling...
+
+import { useState } from "react";
+import FirstComponent from "./components/FirstComponent";
+const App = () => {
+
+    // let x = 0;
+
+    const [x, setX] = useState(0);
+    // const [variable_name, function_name] = useState(initial_value_of_variable)
+
+    const btnClick = () => {
+        console.log("Clicked");
+        // x++;
+        setX(x+1); // so now using this function we need to update the value of x
+        // the interface will also be updated and we will see the changed value of x on webpage as well
+        console.log(x);
+        // but the increased value of 'x' is not shown on browser webpage, it is shown only in console...
+        // this is because the react interface change only when the state is changing... (VirtualDOM - asked in FSE viva by Sir)
+        // hence for this we will use "useState" hook...
+    }
+
+    return (
+        <div>
+            // {x}
+            <button onClick={() => {btnClick()}}>Click Me</button>
+            <FirstComponent data={x} fn={setX}/>
+            // props(variable) - <component_name prop_name={variable_name}/>
+            // props(function) - <component_name prop_name={function_name}/>
+        </div>
+    )
+}
+
+export default App
+
+now, we will learn how to pass the data from one compoenent to another component... (props are used)
+now, we will create a new component in "components" folder...
+
+FirstComponent.jsx:
+
+const FirstComponent = (props) => {
+    return (
+        <div>
+            {props.data}
+            // props.prop_name_given_in_App.jsx
+        </div>
+    )
+}
+
+export default FirstComponent
+
+
+Using Destructing in props:
+
+const FirstComponent = ({data, fn}) => {
+    return (
+        <div>
+            <button onClick={() => {fn(10)}}>Set 10</button>
+            {data}
+            // we did destructuring in props parameter
+        </div>
+    )
+}
+
+export default FirstComponent
+
+
+Using "useRef" to get any element -> just like we use document.getElementByID(id_name) in JavaScript
+
+App.jsx:
+
+import { useRef } from "react"
+
+const App = () => {
+    
+    const [data, setData] = useState([]);
+    const inputRef = useRef(null);
+
+    return (
+        <div>
+        <input ref={inputRef} type="text" />
+        // <button onClick={() => {console.log(inputRef.current.value);}}>Submit</button>
+        <button onClick={() => {setData([...data, inputRef.current.value])}}>Submit</button>
+        {data.map((item, index) => {return <h2 key={index}>{item}</h2>})};
+        </div>
+    )
+}
+
+export default App
